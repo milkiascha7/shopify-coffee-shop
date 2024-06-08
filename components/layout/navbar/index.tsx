@@ -15,7 +15,7 @@ export default async function Navbar() {
   console.log('menu', menu);
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
+    <nav className="relative z-50 flex w-full items-center justify-between bg-black p-4 lg:px-6 lg:backdrop-blur-sm">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />

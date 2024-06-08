@@ -1,7 +1,13 @@
 import { Carousel } from 'components/carousel';
+import Features from 'components/feature/feature';
 import { ThreeItemGrid } from 'components/grid/three-items';
+// import Hero from 'components/hero/hero';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import Hero from '../components/hero/hero';
+
+const DynamicComponent = dynamic(() => import('../components/hero/hero'), { ssr: false });
 
 export const runtime = 'edge';
 
@@ -15,12 +21,19 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <ThreeItemGrid />
       <Suspense>
-        <Carousel />
-        <Suspense>
-          <Footer />
-        </Suspense>
+        <DynamicComponent />
+
+        {<DynamicComponent /> && (
+          <>
+            <ThreeItemGrid />
+            <Features />
+            <Carousel />
+            <Suspense>
+              <Footer />
+            </Suspense>
+          </>
+        )}
       </Suspense>
     </>
   );
