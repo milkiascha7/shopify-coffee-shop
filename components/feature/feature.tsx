@@ -26,8 +26,8 @@ const Features = () => {
       }
     });
 
-    animateWithGsap('#features_title', { y: 0, opacity: 1 }, 'same');
-    animateWithGsap('#features_title2', { y: 0, opacity: 1 }, 'same');
+    animateWithGsap('#features_title', { y: 0, opacity: 1 }, null);
+    animateWithGsap('#features_title2', { y: 0, opacity: 1 }, null);
     animateWithGsap('.g_grow', { scale: 1, opacity: 1, ease: 'power1' }, { scrub: 5.5 });
     animateWithGsap(
       '.g_text',
@@ -45,8 +45,11 @@ const Features = () => {
     <section className="common-padding bg-zinc relative mb-10 h-full overflow-hidden rounded-xl md:mx-6">
       <div className="screen-max-width">
         <div className="flex flex-col items-center justify-center overflow-hidden">
-          <div className="mb-24 pl-24" id="features_title">
-            <h2 className="text-center text-5xl font-semibold opacity-0 lg:text-7xl">
+          <div className="mb-24 pl-24">
+            <h2
+              className="text-center text-5xl font-semibold opacity-0 lg:text-7xl"
+              id="features_title"
+            >
               Senseo&#xae; Original.
             </h2>
             <h2
@@ -57,7 +60,7 @@ const Features = () => {
             </h2>
           </div>
 
-          <div className="flex-center flex-col sm:px-10 md:px-5">
+          <div className="flex-center flex-col sm:px-10">
             <div className="relative flex h-[50vh] w-full items-center">
               <video
                 playsInline
