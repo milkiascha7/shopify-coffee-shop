@@ -5,7 +5,8 @@ import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import Hero from '../components/hero/hero';
+// import Hero from '../components/hero/hero';
+import Model from 'components/model/model';
 
 const DynamicComponent = dynamic(() => import('../components/hero/hero'), { ssr: false });
 
@@ -27,11 +28,10 @@ export default async function HomePage() {
         {<DynamicComponent /> && (
           <>
             <ThreeItemGrid />
+            <Model />
             <Features />
             <Carousel />
-            <Suspense>
-              <Footer />
-            </Suspense>
+            <Footer />
           </>
         )}
       </Suspense>
