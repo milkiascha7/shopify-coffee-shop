@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   html::-webkit-scrollbar{
     display: none;
-    scrollbar-width: none;  /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  Firefox
+    -ms-overflow-style: none;  IE and Edge
   }
 
-}
+} */
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading='lazy'] {
