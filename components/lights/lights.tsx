@@ -40,11 +40,11 @@ const Lights = () => {
       </Environment>
       {/* <Environment
         files="/model/brown-photostudio-04_2K.exr"
-        // background
+        background
         near={1}
         far={1000}
-        environmentIntensity={0.21}
-        // backgroundIntensity={0.21}
+        // environmentIntensity={0.21}
+        backgroundIntensity={0.21}
         // preset="city"
       /> */}
 
@@ -59,7 +59,7 @@ const Lights = () => {
         penumbra={1} // the penumbra is the soft edge of a shadow cast by a point light
         decay={0} // the amount the light dims as it moves away from the source
         intensity={Math.PI * 0.24} // the light intensity
-        color={'#fff'}
+        color={'#f8f9fa'}
       />
       <spotLight
         position={[0, -25, 10]}
@@ -67,7 +67,7 @@ const Lights = () => {
         penumbra={1}
         decay={0}
         intensity={Math.PI * 4.9}
-        color={'#fff'}
+        color={'#f8f9fa'}
       />
       <spotLight
         // ref={lightHelper}

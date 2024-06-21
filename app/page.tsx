@@ -32,9 +32,8 @@ export default async function HomePage() {
               <Model />
             </div>
             <Features />
-            {/* 
             <Carousel />
-            <Footer /> */}
+            <Footer />
           </>
         )}
       </Suspense>

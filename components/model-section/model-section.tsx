@@ -10,7 +10,7 @@ const Loader = () => {
   return (
     <Html>
       <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
-        <div className="h-[10vw] w-[10vw] rounded-full">Loading...</div>
+        <div className=" rounded-full text-xl font-bold md:text-3xl">Loading</div>
       </div>
     </Html>
   );
@@ -30,10 +30,9 @@ const ModelView = ({
       index={index}
       id={gsapType}
       className={`absolute h-full w-full ${index === 2 ? 'right-[-100%]' : ''} `}
-      // className={`absolute h-full w-full ${index === 2 ? 'right-[-100%]' : ''} `}
     >
       {/** ambient light */}
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.3} color="#f8f9fa" />
       <PerspectiveCamera makeDefault position={[0, 1.5, 4.4]} />
       <Lights />
 
@@ -45,9 +44,6 @@ const ModelView = ({
         target={new THREE.Vector3(0, 0.9, 0)}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       />
-
-      {/* <gridHelper args={[10, 10, 0xff0000, 'white']} rotation-y={Math.PI / 2} />
-      <axesHelper args={[10]} /> */}
 
       <group
         ref={groupRef}

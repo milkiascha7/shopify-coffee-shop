@@ -22,10 +22,8 @@ const Model = () => {
   const [model, setModel] = useState({
     id: 1,
     title: 'Phillips Senseo Deep Black Mat',
-    img: redColor
+    img: blackColor
   });
-
-  //   camera control for the model view
 
   const cameraControlSmall = useRef();
   const cameraControlLarge = useRef();
@@ -67,7 +65,7 @@ const Model = () => {
         </h1>
 
         <div className="relative mt-5 flex flex-col items-center">
-          <div className="relative h-[75vh] w-full cursor-grab overflow-hidden rounded-lg border-2  md:h-[90vh]">
+          <div className="relative h-[75vh] w-full cursor-grab overflow-hidden rounded-lg md:h-[90vh]">
             <ModelView
               index={1}
               groupRef={small}
@@ -96,7 +94,6 @@ const Model = () => {
                 right: 0,
                 overflow: 'hidden'
               }}
-              // eventSource={document.getElementById('root')}
             >
               <View.Port />
             </Canvas>
