@@ -4,7 +4,7 @@ import * as THREE from 'three';
 
 import Lights from 'components/lights/lights';
 
-import Model from '../../public/model/Scene';
+import Model from 'components/scene/scene';
 
 const Loader = () => {
   return (
@@ -33,22 +33,21 @@ const ModelView = ({
       // className={`absolute h-full w-full ${index === 2 ? 'right-[-100%]' : ''} `}
     >
       {/** ambient light */}
-      <ambientLight intensity={0.3} />
-      <PerspectiveCamera makeDefault position={[0, 1.3, 3.8]} />
+      <ambientLight intensity={0.5} />
+      <PerspectiveCamera makeDefault position={[0, 1.5, 4.4]} />
       <Lights />
 
       <OrbitControls
         makeDefault
         ref={controlRef}
-        enableZoom={true}
-        enableRotate
+        enableZoom={false}
         rotateSpeed={0.4}
         target={new THREE.Vector3(0, 0.9, 0)}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       />
 
-      <gridHelper args={[10, 10, 0xff0000, 'white']} rotation-y={Math.PI / 2} />
-      <axesHelper args={[10]} />
+      {/* <gridHelper args={[10, 10, 0xff0000, 'white']} rotation-y={Math.PI / 2} />
+      <axesHelper args={[10]} /> */}
 
       <group
         ref={groupRef}
@@ -57,7 +56,7 @@ const ModelView = ({
       ></group>
 
       <Suspense fallback={<Loader />}>
-        <Model />
+        <Model scale={index === 1 ? [15, 15, 15] : [20, 20, 20]} item={item} size={size} />
       </Suspense>
     </View>
   );

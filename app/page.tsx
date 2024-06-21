@@ -23,18 +23,20 @@ export default async function HomePage() {
   return (
     <>
       <Suspense>
-        {/* <DynamicComponent /> */}
+        <DynamicComponent />
 
-        {/* {<DynamicComponent /> && ( */}
-        <>
-          {/* <ThreeItemGrid /> */}
-          <Model />
-          <Features />
-          {/* 
+        {<DynamicComponent /> && (
+          <>
+            <ThreeItemGrid />
+            <div className="-z-20">
+              <Model />
+            </div>
+            <Features />
+            {/* 
             <Carousel />
             <Footer /> */}
-        </>
-        {/* )} */}
+          </>
+        )}
       </Suspense>
     </>
   );

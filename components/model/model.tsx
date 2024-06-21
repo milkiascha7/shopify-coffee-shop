@@ -1,21 +1,28 @@
+'use client';
+
 import { useEffect, useState, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
-import ModelView from './ModelView';
+import ModelView from 'components/model-section/model-section';
 import gsap from 'gsap';
-import { yellowImg } from '../utils';
+// import { yellowImg } from '../utils';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { View } from '@react-three/drei';
-import { ModelsInfo, sizes } from '../../constants';
+import { ModelsInfo, sizes } from '../../constants/constants';
 import { animateWithGsapTimeline } from 'utils/animation';
+
+// textures
+import blackColor from '../../public/model/textures/New Black Texture.png';
+import whiteColor from '../../public/model/textures/NEW White Texture.png';
+import redColor from '../../public/model/textures/NEW RED TEXTURE.png';
 
 const Model = () => {
   const [size, setSize] = useState('small');
 
   const [model, setModel] = useState({
-    title: 'iPhone 15 Pro in Natural Titanium',
-    color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
-    img: yellowImg
+    id: 1,
+    title: 'Phillips Senseo Deep Black Mat',
+    img: redColor
   });
 
   //   camera control for the model view
@@ -46,7 +53,7 @@ const Model = () => {
         duration: 2
       });
     }
-  }, [size]);
+  }, [size, model]);
 
   useGSAP(() => {
     gsap.to('#heading', { y: 0, opacity: 1 });
@@ -59,8 +66,8 @@ const Model = () => {
           Take a closer look.
         </h1>
 
-        <div className="mt-5 flex flex-col items-center">
-          <div className="relative h-[75vh] w-full overflow-hidden md:h-[90vh]">
+        <div className="relative mt-5 flex flex-col items-center">
+          <div className="relative h-[75vh] w-full cursor-grab overflow-hidden rounded-lg border-2  md:h-[90vh]">
             <ModelView
               index={1}
               groupRef={small}
@@ -80,7 +87,8 @@ const Model = () => {
               size={size}
             />
             <Canvas
-              className="h-full w-full"
+              shadows
+              className="-z-20 h-full w-full cursor-grab"
               style={{
                 position: 'fixed',
                 top: 0,
@@ -97,10 +105,10 @@ const Model = () => {
             <p className="mb-5 text-center text-sm font-light">{model.title}</p>
             <div className="flex-center">
               <ul className="color-container">
-                {ModelsInfo.map((item, i) => (
+                {ModelsInfo.map((item: any, i) => (
                   <li
                     key={i}
-                    className="mx-2 h-6 w-6 rounded-full"
+                    className="mx-2 h-6 w-6 cursor-pointer  rounded-full"
                     style={{
                       backgroundColor: item.color[0]
                     }}
