@@ -83,4 +83,4 @@ export default function Model(props: JSX.IntrinsicElements['group'] | any) {
   );
 }
 
-useGLTF.preload('/model/coffeemachine_to_BAKE.gltf');
+useGLTF.preload('/model/coffeemachine to BAKE 2.glb');
