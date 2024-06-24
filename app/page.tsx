@@ -10,7 +10,7 @@ import Model from 'components/model/model';
 
 const DynamicComponent = dynamic(() => import('../components/hero/hero'), { ssr: false });
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, and Shopify.',
