@@ -7,6 +7,7 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 // import Hero from '../components/hero/hero';
 import Model from 'components/model/model';
+import Hero from '../components/hero/hero';
 
 const DynamicComponent = dynamic(() => import('../components/hero/hero'), { ssr: false });
 
@@ -23,19 +24,12 @@ export default async function HomePage() {
   return (
     <>
       <Suspense>
-        <DynamicComponent />
-
-        {<DynamicComponent /> && (
-          <>
-            <ThreeItemGrid />
-            <div className="-z-20">
-              <Model />
-            </div>
-            <Features />
-            <Carousel />
-            <Footer />
-          </>
-        )}
+        <Hero />
+        <ThreeItemGrid />
+        <Model />
+        <Features />
+        <Carousel />
+        <Footer />
       </Suspense>
     </>
   );

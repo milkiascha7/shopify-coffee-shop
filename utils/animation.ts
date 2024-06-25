@@ -10,10 +10,7 @@ export const animateWithGsap = (target: any, animationProps: any, scrollProps: a
       // the first one is on enter, on leave, enter back, leave back
       toggleActions: 'restart reverse restart reverse',
       start: 'top 85%',
-      // end: 'top 15%',
-      // end: 'top top',
-      ...scrollProps,
-      markers: true
+      ...scrollProps
     }
   });
 };

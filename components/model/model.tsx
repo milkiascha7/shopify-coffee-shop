@@ -15,6 +15,7 @@ import { animateWithGsapTimeline } from 'utils/animation';
 import blackColor from '../../public/model/textures/New Black Texture.png';
 import whiteColor from '../../public/model/textures/NEW White Texture.png';
 import redColor from '../../public/model/textures/NEW RED TEXTURE.png';
+import clsx from 'clsx';
 
 const Model = () => {
   const [size, setSize] = useState('small');
@@ -54,7 +55,7 @@ const Model = () => {
   }, [size, model]);
 
   useGSAP(() => {
-    gsap.to('#heading', { y: 0, opacity: 1 });
+    gsap.to('#heading', { y: 0, opacity: 1, ease: 'power2.inOut' });
   });
 
   return (
@@ -105,9 +106,10 @@ const Model = () => {
                 {ModelsInfo.map((item: any, i) => (
                   <li
                     key={i}
-                    className="mx-2 h-6 w-6 cursor-pointer  rounded-full"
+                    className={clsx('mx-2 h-7 w-7 cursor-pointer rounded-full')}
                     style={{
-                      backgroundColor: item.color[0]
+                      backgroundColor: item.color[0],
+                      border: model.id === item.id ? 'solid 4px gray' : 'none'
                     }}
                     onClick={() => setModel(item)}
                   ></li>

@@ -10,6 +10,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 
 const Features = () => {
+  const containerRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useGSAP(() => {
@@ -26,8 +27,9 @@ const Features = () => {
       }
     });
 
-    animateWithGsap('#features_title', { y: 0, opacity: 1 }, null);
-    animateWithGsap('#features_title2', { y: 0, opacity: 1 }, null);
+    animateWithGsap('#features_title', { y: 0, opacity: 1, ease: 'power1' }, null);
+    animateWithGsap('#features_title2', { y: 0, opacity: 1, ease: 'power1' }, null);
+
     animateWithGsap('.g_grow', { scale: 1, opacity: 1, ease: 'power1' }, { scrub: 5.5 });
     animateWithGsap(
       '.g_text',
@@ -39,21 +41,24 @@ const Features = () => {
       },
       null
     );
-  }, []);
+  }, [containerRef.current]);
 
   return (
-    <section className="common-padding bg-zinc relative mb-10 h-full overflow-hidden rounded-xl md:mx-6">
+    <section
+      className="common-padding relative mb-10 h-full overflow-hidden rounded-xl bg-zinc md:mx-6"
+      ref={containerRef}
+    >
       <div className="screen-max-width">
         <div className="flex flex-col items-center justify-center overflow-hidden">
           <div className="mb-24 pl-24">
             <h2
-              className="text-center text-5xl font-semibold opacity-0 lg:text-7xl"
+              className="text-center text-5xl font-semibold opacity-0 transition-all ease-in-out lg:text-7xl"
               id="features_title"
             >
-              Senseo&#xae; Original.
+              Senseo<span className="text-sm">&#xae;</span> Original.
             </h2>
             <h2
-              className="text-center text-5xl font-semibold opacity-0 lg:text-7xl"
+              className="text-center text-5xl font-semibold opacity-0 transition-all ease-in-out lg:text-7xl"
               id="features_title2"
             >
               Forged in titanium.

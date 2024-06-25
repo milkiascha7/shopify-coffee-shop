@@ -1,7 +1,7 @@
 'use client';
 
 import * as THREE from 'three';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useGLTF, useTexture } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { useLoader } from '@react-three/fiber';
@@ -23,7 +23,7 @@ type GLTFResult = GLTF & {
 };
 
 export default function Model(props: JSX.IntrinsicElements['group'] | any) {
-  const modelRef = useRef(null);
+  const modelRef = useRef<THREE.Group>(null);
 
   const texture = useTexture(props.item.img.src) as THREE.Texture;
 
@@ -32,6 +32,25 @@ export default function Model(props: JSX.IntrinsicElements['group'] | any) {
   texture.flipY = false; // Blender's textures might need this setting
 
   const { nodes, materials } = useGLTF('/model/coffeemachine to BAKE 2.glb') as GLTFResult;
+
+  useEffect(() => {
+    if (modelRef.current)
+      modelRef.current.children.forEach((child: any) => {
+        // console.log(child);
+        // console.log(child)
+        if (child.children[0].name === 'back_water_holder') {
+          // console.log(child);
+
+          child.children[0].children[1].material = new THREE.MeshPhysicalMaterial();
+          child.children[0].children[1].material.roughness = 0.15;
+          child.children[0].children[1].material.color.set('#fff');
+          child.children[0].children[1].material.ior = 3;
+          child.children[0].children[1].material.transmission = 1;
+          child.children[0].children[1].material.opacity = 0;
+        }
+      });
+  }, [materials]);
+
   return (
     <group {...props} dispose={null} scale={0.59} ref={modelRef}>
       <group name="Scene">
