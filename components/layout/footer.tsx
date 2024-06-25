@@ -56,7 +56,7 @@ export default async function Footer() {
           <p>Designed in Denver, Colorado USA</p>
           <p className="md:ml-auto">
             <a href="https://vercel.com" className="text-black dark:text-white">
-              Crafted by Milkias
+              Crafted by MH DESIGNS
             </a>
           </p>
         </div>

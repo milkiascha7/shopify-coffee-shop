@@ -50,15 +50,15 @@ const Features = () => {
     >
       <div className="screen-max-width">
         <div className="flex flex-col items-center justify-center overflow-hidden">
-          <div className="mb-24 pl-24">
+          <div className="mb-24 gap-y-10 md:gap-y-0">
             <h2
-              className="text-center text-5xl font-semibold opacity-0 transition-all ease-in-out lg:text-7xl"
+              className="text-center text-3xl font-semibold opacity-0 transition-all ease-in-out md:text-5xl lg:text-7xl"
               id="features_title"
             >
-              Senseo<span className="text-sm">&#xae;</span> Original.
+              Senseo<span className="text-sm">&#xae;</span> Original
             </h2>
             <h2
-              className="text-center text-5xl font-semibold opacity-0 transition-all ease-in-out lg:text-7xl"
+              className="text-center text-4xl font-semibold opacity-0 transition-all ease-in-out md:text-5xl lg:text-7xl"
               id="features_title2"
             >
               Forged in titanium.

@@ -15,15 +15,21 @@ const Hero = () => {
 
   return (
     <section className="nav-height relative w-full bg-black">
-      <div className="flex-center h-5/6 w-full flex-col">
+      <div className="flex-center mb-10 h-5/6 w-full flex-col">
         <p id="hero" className="hero-title relative">
           Senseo<span className="text-sm">&#xae;</span> Original
         </p>
-        <p id="hero2" className="hero-subtitle">
+        <p id="hero2" className="hero-subtitle mb-20 md:mb-10">
           Coffee Machine
         </p>
-        <div className="w-9/12 md:w-10/12">
-          <video className="pointer-events-none" autoPlay muted playsInline={true} key={videoSrc}>
+        <div className="h-[50vh] w-full md:h-auto md:w-10/12">
+          <video
+            className="pointer-events-none h-full w-full object-cover object-center"
+            autoPlay
+            muted
+            playsInline={true}
+            key={videoSrc}
+          >
             <source src={videoSrc} />
           </video>
         </div>
@@ -32,11 +38,13 @@ const Hero = () => {
       <div id="cta" className="flex translate-y-20 flex-col items-center opacity-0">
         <Link
           href="/product/philips-senseo-csa210-10-original-plus-coffee-pad-maker"
-          className="btn text-xl font-bold"
+          className="btn text-lg font-bold md:text-xl"
         >
           Buy
         </Link>
-        <p className="text-xl font-normal">From $299.99/small or $399.99/large</p>
+        <p className="text-md text-center font-normal md:text-xl">
+          From $299.99/small or $399.99/large
+        </p>
       </div>
     </section>
   );
